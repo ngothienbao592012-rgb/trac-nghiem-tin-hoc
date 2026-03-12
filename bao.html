@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm Tra GK2 - Tin Học 8</title>
+    <style>
+        :root { --primary: #0284c7; --success: #16a34a; --danger: #dc2626; --bg: #f0f9ff; }
+        body { font-family: Arial, sans-serif; background: var(--bg); color: #1e293b; line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: var(--primary); text-transform: uppercase; border-bottom: 3px solid var(--primary); padding-bottom: 15px; }
+        .question-block { margin-bottom: 25px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc; }
+        .q-title { font-weight: bold; font-size: 1.1em; color: #0f172a; margin-bottom: 15px; display: block; }
+        
+        /* Trắc nghiệm bình thường */
+        .option { display: block; padding: 10px 15px; margin: 8px 0; background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+        .option:hover { background: #e0f2fe; border-color: var(--primary); }
+        .option input { margin-right: 10px; transform: scale(1.2); }
+
+        /* Đúng sai */
+        .tf-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
+        .tf-table th, .tf-table td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
+        .tf-table th { background: #e0f2fe; color: var(--primary); text-align: center; }
+        .tf-table td.center { text-align: center; }
+
+        /* Điền khuyết */
+        .fill-blank { padding: 8px; border: 2px solid var(--primary); border-radius: 5px; font-size: 1em; width: 150px; }
+
+        .btn-submit { display: block; width: 100%; padding: 15px; font-size: 1.2em; font-weight: bold; color: white; background: var(--primary); border: none; border-radius: 8px; cursor: pointer; margin-top: 30px; transition: 0.3s; }
+        .btn-submit:hover { background: #0369a1; }
+
+        /* Kết quả */
+        #result-section { display: none; margin-top: 30px; padding: 20px; border-top: 3px dashed var(--primary); }
+        .score-display { font-size: 2.5em; text-align: center; font-weight: bold; color: var(--primary); margin-bottom: 20px; }
+        .wrong-item { background: #fef2f2; border-left: 5px solid var(--danger); padding: 15px; margin-bottom: 15px; border-radius: 6px; }
+        .wrong-q-title { font-weight: bold; color: var(--danger); }
+        .your-ans { text-decoration: line-through; color: #64748b; margin-right: 10px; }
+        .correct-ans { color: var(--success); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ÔN TẬP GK2 TIN HỌC 8</h1>
+    <div id="quiz-form">
+
+        <div class="question-block">
+            <span class="q-title">Câu 1: Chọn phát biểu ĐÚNG trong các phát biểu sau đây?</span>
+            <label class="option"><input type="radio" name="q1" value="A"> A. Phần mềm trình chiếu cung cấp sẵn các mẫu định dạng (Themes) và các bản mẫu (Template).</label>
+            <label class="option"><input type="radio" name="q1" value="B"> B. Mẫu định dạng và bản mẫu đều cung cấp sẵn bố cục, màu sắc, phông chữ, hiệu ứng, kiểu nền và cả nội dung.</label>
+            <label class="option"><input type="radio" name="q1" value="C"> C. Bản mẫu là bản thiết kế của một hoặc một nhóm trang chiếu được lưu dưới dạng một tệp có phần mở rộng là .pptx.</label>
+            <label class="option"><input type="radio" name="q1" value="D"> D. Không thể chỉnh sửa, chia sẻ, tái sử dụng bản mẫu.</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 2: Trong phần mềm trình chiếu PowerPoint, các phát biểu sau là đúng hay sai?</span>
+            <table class="tf-table">
+                <tr><th>Phát biểu</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>1. Trang chiếu càng nhiều màu sắc, phông chữ thì càng chuyên nghiệp.</td>
+                    <td class="center"><input type="radio" name="q2_1" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q2_1" value="Sai"></td>
+                </tr>
+                <tr>
+                    <td>2. Văn bản trên trang chiếu cần chi tiết, cụ thể, càng nhiều thông tin càng tốt.</td>
+                    <td class="center"><input type="radio" name="q2_2" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q2_2" value="Sai"></td>
+                </tr>
+                <tr>
+                    <td>3. Màu sắc, cỡ chữ, phông chữ đóng vai trò quan trọng trong việc thiết kế một bài trình chiếu.</td>
+                    <td class="center"><input type="radio" name="q2_3" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q2_3" value="Sai"></td>
+                </tr>
+                <tr>
+                    <td>4. Phần mềm trình chiếu cho phép tạo đầu trang, chân trang và số trang tương tự phần mềm soạn thảo văn bản.</td>
+                    <td class="center"><input type="radio" name="q2_4" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q2_4" value="Sai"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 3: Hãy điền vào chỗ trống:</span>
+            <p>Bản mẫu là một bản thiết kế của một hoặc một nhóm các trang chiếu được lưu dưới dạng một tệp có phần mở rộng là: <input type="text" id="q3" class="fill-blank" placeholder="Nhập đáp án..."></p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 4: Để không thêm chân trang vào trang tiêu đề, em chọn lựa chọn nào sau đây trong hộp thoại Header and Footer?</span>
+            <label class="option"><input type="radio" name="q4" value="A"> A. Footer</label>
+            <label class="option"><input type="radio" name="q4" value="B"> B. Slide number</label>
+            <label class="option"><input type="radio" name="q4" value="C"> C. Update automatically</label>
+            <label class="option"><input type="radio" name="q4" value="D"> D. Don't show on title slide</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 5: Em cần tạo một danh sách liệt kê dạng “Các bước thực hiện thí nghiệm”. Loại danh sách dạng liệt kê nào sẽ phù hợp?</span>
+            <label class="option"><input type="radio" name="q5" value="A"> A. Danh sách dạng số thứ tự (1., 2., 3.)</label>
+            <label class="option"><input type="radio" name="q5" value="B"> B. Danh sách dạng liệt kê (gạch đầu dòng)</label>
+            <label class="option"><input type="radio" name="q5" value="C"> C. Danh sách dạng liệt kê (A., B., C., …)</label>
+            <label class="option"><input type="radio" name="q5" value="D"> D. Không loại nào phù hợp</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 6: Hãy điền vào chỗ trống:</span>
+            <p>Để thêm chân trang vào bài trình chiếu em thực hiện như sau:<br>
+            Bước 1: Nháy chuột chọn Insert<br>
+            Bước 2: Trong nhóm lệnh Text chọn lệnh Header & <input type="text" id="q6" class="fill-blank" placeholder="Nhập đáp án..."><br>
+            Bước 3: Nháy chuột chọn Apply to All để thêm đầu trang vào tất cả các trang trong bài trình chiếu</p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 7: Bản mẫu (Template) trong PowerPoint có chức năng gì?</span>
+            <label class="option"><input type="radio" name="q7" value="A"> A. Tự động tạo hiệu ứng cho toàn bộ slide</label>
+            <label class="option"><input type="radio" name="q7" value="B"> B. Cung cấp bố cục, màu sắc và phong cách nhất quán cho bài trình chiếu</label>
+            <label class="option"><input type="radio" name="q7" value="C"> C. Tạo văn bản mẫu trong slide</label>
+            <label class="option"><input type="radio" name="q7" value="D"> D. Thêm nhạc nền vào bài trình chiếu</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 8: Để đánh số trang trong văn bản, em thực hiện thao tác nào sau đây?</span>
+            <label class="option"><input type="radio" name="q8" value="A"> A. Insert → Header & Footer → Page Number</label>
+            <label class="option"><input type="radio" name="q8" value="B"> B. View → Page Number</label>
+            <label class="option"><input type="radio" name="q8" value="C"> C. Format → Page Number</label>
+            <label class="option"><input type="radio" name="q8" value="D"> D. Edit → Page Number</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 9: Để tạo danh sách dạng liệt kê (ví dụ: danh sách các gạch đầu dòng), em sử dụng công cụ nào?</span>
+            <label class="option"><input type="radio" name="q9" value="A"> A. Tables</label>
+            <label class="option"><input type="radio" name="q9" value="B"> B. Styles</label>
+            <label class="option"><input type="radio" name="q9" value="C"> C. Bullets and Numbering</label>
+            <label class="option"><input type="radio" name="q9" value="D"> D. Comments</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 10: Khi chọn màu nền và màu chữ trong bài trình chiếu, nguyên tắc nào dưới đây giúp nội dung dễ đọc nhất?</span>
+            <label class="option"><input type="radio" name="q10" value="A"> A. Màu nền và màu chữ cùng tông màu nhưng khác sắc độ</label>
+            <label class="option"><input type="radio" name="q10" value="B"> B. Màu nền đậm, chữ sáng hoặc ngược lại</label>
+            <label class="option"><input type="radio" name="q10" value="C"> C. Màu nền và chữ đều sáng để tạo cảm giác nhẹ nhàng</label>
+            <label class="option"><input type="radio" name="q10" value="D"> D. Sử dụng nhiều màu sắc sặc sỡ để thu hút người xem</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 11: Hãy điền vào chỗ trống:</span>
+            <p>Để thêm đầu trang vào bài trình chiếu em thực hiện như sau:<br>
+            Bước 1: Nháy chuột chọn <input type="text" id="q11" class="fill-blank" placeholder="Nhập đáp án..."><br>
+            Bước 2: Trong nhóm lệnh Text chọn lệnh Header & Footer<br>
+            Bước 3: Nháy chuột chọn Apply to All để thêm đầu trang vào tất cả các trang</p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 12: Để chỉnh sửa bản mẫu cho toàn bộ bài trình chiếu, em sử dụng công cụ nào?</span>
+            <label class="option"><input type="radio" name="q12" value="A"> A. Design → Themes</label>
+            <label class="option"><input type="radio" name="q12" value="B"> B. View → Slide Master</label>
+            <label class="option"><input type="radio" name="q12" value="C"> C. Insert → New Slide</label>
+            <label class="option"><input type="radio" name="q12" value="D"> D. Transitions → Effects</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 13: Trong phần mềm soạn thảo văn bản, các phát biểu sau là đúng hay sai?</span>
+            <table class="tf-table">
+                <tr><th>Phát biểu</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>1. Đầu trang và chân trang là phần lề trên và lề dưới của văn bản.</td>
+                    <td class="center"><input type="radio" name="q13_1" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q13_1" value="Sai"></td>
+                </tr>
+                <tr>
+                    <td>2. Số trang chỉ có thể được đặt ở đầu trang hoặc chân trang.</td>
+                    <td class="center"><input type="radio" name="q13_2" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q13_2" value="Sai"></td>
+                </tr>
+                <tr>
+                    <td>3. Ngay khi em tạo một văn bản mới, phần mềm soạn thảo đã tự động đánh số trang theo thứ tự giảm dần.</td>
+                    <td class="center"><input type="radio" name="q13_3" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q13_3" value="Sai"></td>
+                </tr>
+                <tr>
+                    <td>4. Đầu trang chỉ có thể chứa văn bản, không thể chứa hình ảnh hoặc hình đồ họa.</td>
+                    <td class="center"><input type="radio" name="q13_4" value="Đúng"></td>
+                    <td class="center"><input type="radio" name="q13_4" value="Sai"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 14: Phương án nào sau đây mô tả các bước sử dụng bản mẫu?</span>
+            <label class="option"><input type="radio" name="q14" value="A"> A. Nháy chuột chọn Design → Themes, chọn bản mẫu</label>
+            <label class="option"><input type="radio" name="q14" value="B"> B. Nháy chuột chọn File → New, chọn bản mẫu</label>
+            <label class="option"><input type="radio" name="q14" value="C"> C. Nháy chuột chọn Design → Variants, chọn bản mẫu</label>
+            <label class="option"><input type="radio" name="q14" value="D"> D. Nháy chuột chọn Insert → Text, chọn bản mẫu</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 15: Em hãy sắp xếp lại các bước để thêm đầu trang vào bài trình chiếu sao cho đúng:<br>
+            (1) Nháy chuột chọn Insert<br>
+            (2) Trong nhóm lệnh Text chọn lệnh Header and Footer<br>
+            (3) Nháy chuột chọn Apply to All<br>
+            (4) Trong cửa sổ Header and Footer chọn trang Notes and Handout<br>
+            (5) Nhập nội dung muốn xuất hiện ở đầu trang<br>
+            (6) Nháy chuột vào ô trước mục Header</span>
+            <label class="option"><input type="radio" name="q15" value="A"> A. 1 → 2 → 4 → 6 → 5 → 3</label>
+            <label class="option"><input type="radio" name="q15" value="B"> B. 4 → 2 → 6 → 1 → 3 → 5</label>
+            <label class="option"><input type="radio" name="q15" value="C"> C. 1 → 2 → 3 → 4 → 5 → 6</label>
+            <label class="option"><input type="radio" name="q15" value="D"> D. 1 → 4 → 6 → 3 → 2 → 5</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 16: Trong PowerPoint, bản mẫu có tên là gì?</span>
+            <label class="option"><input type="radio" name="q16" value="A"> A. Templates</label>
+            <label class="option"><input type="radio" name="q16" value="B"> B. Themes</label>
+            <label class="option"><input type="radio" name="q16" value="C"> C. Apply to selected slides</label>
+            <label class="option"><input type="radio" name="q16" value="D"> D. Design</label>
+        </div>
+
+        <div class="question-block">
+            <span class="q-title">Câu 17: Để vẽ hình đồ họa như hình tròn, hình vuông hoặc mũi tên trong trang chiếu, em dùng công cụ nào?</span>
+            <label class="option"><input type="radio" name="q17" value="A"> A. Insert → SmartArt</label>
+            <label class="option"><input type="radio" name="q17" value="B"> B. Insert → Shapes</label>
+            <label class="option"><input type="radio" name="q17" value="C"> C. Design → Shapes</label>
+            <label class="option"><input type="radio" name="q17" value="D"> D. View → Draw</label>
+        </div>
+
+        <button class="btn-submit" onclick="gradeQuiz()">NỘP BÀI VÀ XEM ĐIỂM</button>
+    </div>
+
+    <div id="result-section">
+        <div class="score-display" id="final-score"></div>
+        <div id="wrong-answers-list"></div>
+        <button class="btn-submit" onclick="location.reload()" style="background:#64748b; margin-top:20px;">LÀM LẠI BÀI TẬP</button>
+    </div>
+</div>
+
+<script>
+    // Dữ liệu đáp án chuẩn từ file [cite: 85-110]
+    const answerKey = {
+        q1: { type: "radio", ans: "A", name: "Câu 1" },
+        q2_1: { type: "radio", ans: "Sai", name: "Câu 2 - Ý 1" },
+        q2_2: { type: "radio", ans: "Sai", name: "Câu 2 - Ý 2" },
+        q2_3: { type: "radio", ans: "Đúng", name: "Câu 2 - Ý 3" },
+        q2_4: { type: "radio", ans: "Đúng", name: "Câu 2 - Ý 4" },
+        q3: { type: "text", ans: ".potx", name: "Câu 3 (Điền khuyết)" },
+        q4: { type: "radio", ans: "D", name: "Câu 4" },
+        q5: { type: "radio", ans: "A", name: "Câu 5" },
+        q6: { type: "text", ans: "footer", name: "Câu 6 (Điền khuyết)" },
+        q7: { type: "radio", ans: "B", name: "Câu 7" },
+        q8: { type: "radio", ans: "A", name: "Câu 8" },
+        q9: { type: "radio", ans: "C", name: "Câu 9" },
+        q10: { type: "radio", ans: "B", name: "Câu 10" },
+        q11: { type: "text", ans: "insert", name: "Câu 11 (Điền khuyết)" },
+        q12: { type: "radio", ans: "B", name: "Câu 12" },
+        q13_1: { type: "radio", ans: "Đúng", name: "Câu 13 - Ý 1" },
+        q13_2: { type: "radio", ans: "Đúng", name: "Câu 13 - Ý 2" },
+        q13_3: { type: "radio", ans: "Sai", name: "Câu 13 - Ý 3" },
+        q13_4: { type: "radio", ans: "Sai", name: "Câu 13 - Ý 4" },
+        q14: { type: "radio", ans: "B", name: "Câu 14" },
+        q15: { type: "radio", ans: "A", name: "Câu 15" },
+        q16: { type: "radio", ans: "A", name: "Câu 16" },
+        q17: { type: "radio", ans: "B", name: "Câu 17" }
+    };
+
+    function gradeQuiz() {
+        let score = 0;
+        let totalItems = Object.keys(answerKey).length;
+        let wrongHTML = "<h3>Danh sách các câu sai:</h3>";
+        let hasWrong = false;
+
+        for (let key in answerKey) {
+            let item = answerKey[key];
+            let userAnswer = "";
+
+            if (item.type === "radio") {
+                let selected = document.querySelector(`input[name="${key}"]:checked`);
+                userAnswer = selected ? selected.value : "Chưa trả lời";
+            } else if (item.type === "text") {
+                userAnswer = document.getElementById(key).value.trim().toLowerCase();
+            }
+
+            // Kiểm tra đáp án
+            let isCorrect = false;
+            if (item.type === "text") {
+                // Chấp nhận chữ thường/chữ hoa với điền khuyết
+                isCorrect = (userAnswer === item.ans.toLowerCase());
+                userAnswer = userAnswer || "Bỏ trống";
+            } else {
+                isCorrect = (userAnswer === item.ans);
+            }
+
+            if (isCorrect) {
+                score++;
+            } else {
+                hasWrong = true;
+                wrongHTML += `
+                    <div class="wrong-item">
+                        <span class="wrong-q-title">${item.name}:</span> 
+                        Bạn chọn/nhập <span class="your-ans">"${userAnswer}"</span> 
+                        <span class="correct-ans">➜ Đáp án đúng: "${item.ans}"</span>
+                    </div>
+                `;
+            }
+        }
+
+        // Tính thang điểm 10
+        let finalScore = ((score / totalItems) * 10).toFixed(2);
+
+        // Hiển thị kết quả
+        document.getElementById('quiz-form').style.display = 'none';
+        document.getElementById('result-section').style.display = 'block';
+        document.getElementById('final-score').innerText = "Điểm của bạn: " + finalScore + " / 10";
+        document.getElementById('wrong-answers-list').innerHTML = hasWrong ? wrongHTML : "<h3 style='color:green; text-align:center;'>🎉 Tuyệt vời! Bạn đã làm đúng toàn bộ 100%!</h3>";
+        
+        // Cuộn lên đầu trang để xem điểm
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
